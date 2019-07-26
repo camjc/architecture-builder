@@ -19,6 +19,8 @@ const checkboxes = nodes.sort().map((node: string) => {
 
 const App = () => {
   const [checkedItems, setCheckedItems] = useQueryParam("a", ArrayParam);
+  // TODO: support reading raw .viz file, and parsing into constituent parts.
+  // TODO: manage state of .viz file to pull in here, and do the fetch and generate checkboxes from that.
 
   const handleChange = (event: {
     target: { checked: boolean; name: string };
@@ -34,8 +36,8 @@ const App = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.sidebar}>
-        <button onClick={handleSelectAll}>Select all</button>
-        <button onClick={handleClear}>Clear</button>
+        <button className={styles.button} onClick={handleSelectAll}>Select all</button>
+        <button className={styles.button} onClick={handleClear}>Clear</button>
         {checkboxes.map((item: { value: string; name: string }) => (
           <div key={item.value}>
             <label>

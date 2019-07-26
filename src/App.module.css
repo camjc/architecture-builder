@@ -1,11 +1,19 @@
 .wrapper {
-  align-items: center;
+  align-items: top;
   display: flex;
   flex-direction: row;
-  justify-content: left
+  justify-content: left;
 }
 
 .sidebar {
   flex-shrink: 0;
-  width: 300px
+  width: 18rem;
+  margin: 1rem;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  min-height: 2rem;
+  margin-bottom: 1rem;
 }
