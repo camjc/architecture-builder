@@ -1,0 +1,33 @@
+{
+  allSoftwareApplications {
+    id: _id
+    name
+    url
+    featureList {
+      name
+    }
+    operatingSystems {
+      name
+    }
+    availableOnDevice {
+      name
+    }
+  }
+  allSendActions {
+    duration
+    fromLocation {
+      _id
+    }
+    toLocation {
+      _id
+    }
+  }
+  allSoftwareSourceCodes {
+    targetProduct {
+      _id
+    }
+    programmingLanguages {
+      name
+    }
+  }
+}
