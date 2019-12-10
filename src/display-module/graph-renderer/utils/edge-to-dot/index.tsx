@@ -1,4 +1,4 @@
-import GraphEdge from "../../../../../types/GraphEdge";
+import GraphEdge from "../../../types/GraphEdge";
 import rgbHex from 'rgb-hex';
 
 const getColorPart = (edge: GraphEdge) =>

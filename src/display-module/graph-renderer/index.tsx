@@ -1,15 +1,23 @@
+import _ from "lodash";
 import { Module, render } from "viz.js/full.render.js";
-import React, { useState } from "react";
-import Viz from "viz.js";
-import GraphEdge from "../../../types/GraphEdge";
-import GraphNode from "../../../types/GraphNode";
+import edgeToDot from "./utils/edge-to-dot";
+import GraphEdge from "../types/GraphEdge";
+import GraphNode from "../types/GraphNode";
 import map from "lodash/fp/map";
 import nodeToDot from "./utils/node-to-dot";
-import edgeToDot from "./utils/edge-to-dot";
+import React, { useState } from "react";
+import Viz from "viz.js";
 
 const viz = new Viz({ Module, render });
 
 const newLine = "\n";
+
+const removeExplicitDimensions = (svgString: string) =>
+  _.replace(
+    svgString,
+    /width="(.*?)" height="(.*?)"/,
+    'width="100%" height="100%"'
+  );
 
 const GraphRenderer = ({
   header,
@@ -20,7 +28,7 @@ const GraphRenderer = ({
   edges: GraphEdge[];
   nodes: GraphNode[];
 }) => {
-  const [svgHtml, setSvgHtml] = useState("");
+  const [svgString, setSvgString] = useState("");
 
   const allItems: string[][] = [
     header,
@@ -33,13 +41,17 @@ const GraphRenderer = ({
     .renderString(
       allItems.map((subarray: string[]) => subarray.join(newLine)).join(newLine)
     )
-    .then(setSvgHtml)
+    .then(setSvgString)
     .catch(console.error);
 
-  if (!svgHtml) {
+  if (!svgString) {
     return <div>Rendering</div>;
   }
 
-  return <div dangerouslySetInnerHTML={{ __html: svgHtml }} />;
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: removeExplicitDimensions(svgString) }}
+    />
+  );
 };
 export default GraphRenderer;

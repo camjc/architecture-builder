@@ -1,17 +1,18 @@
 import { useQueryParam, ArrayParam } from "use-query-params";
 import filter from "lodash/fp/filter";
 import flow from "lodash/fp/flow";
-import GraphEdge from "../../types/GraphEdge";
-import GraphNode from "../../types/GraphNode";
+import GraphEdge from "./types/GraphEdge";
+import GraphNode from "./types/GraphNode";
 import GraphRenderer from "./graph-renderer";
 import includes from "lodash/fp/includes";
 import map from "lodash/fp/map";
 import React from "react";
 import sortBy from "lodash/fp/sortBy";
 import styles from "./styles.module.css";
+import toLower from "lodash/fp/toLower";
 
 const header = [
-  "strict digraph MyGraph {",
+  "strict digraph SoftwareArchitecture {",
   "overlap = false;",
   'node [fontsize=16 fontname="Proxima Nova"];',
   'rankdir="LR"',
@@ -41,7 +42,7 @@ const StateManagement = ({
   console.log({edges, nodes})
   const checkBoxes: checkBox[] = flow(
     map((node: GraphNode) => ({ value: node.id, name: node.name })),
-    sortBy((node: checkBox) => node.name)
+    sortBy((node: checkBox) => toLower(node.name))
   )(nodes);
   const [checkedItems, setCheckedItems] = useQueryParam("a", ArrayParam);
 

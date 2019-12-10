@@ -1,4 +1,4 @@
-import GraphNode from "../../../../../types/GraphNode";
+import GraphNode from "../../../types/GraphNode";
 const mapWithKeys = require("lodash/fp/map").convert({ cap: false });
 
 const nodeToDot = (node: GraphNode) =>

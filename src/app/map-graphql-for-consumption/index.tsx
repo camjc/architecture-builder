@@ -1,10 +1,10 @@
-import ArchitectureData from "../../types/ArchitectureData";
+import ArchitectureData from "../types/ArchitectureData";
 import compact from "lodash/fp/compact";
 import get from "lodash/fp/get";
 import map from "lodash/fp/map";
 import omitBy from "lodash/fp/omitBy";
 import isEmpty from "lodash/fp/isEmpty";
-import SoftwareApplication from "../../types/SoftwareApplication";
+import SoftwareApplication from "../types/SoftwareApplication";
 import { Duration } from "luxon";
 
 const objectsToNames = (
