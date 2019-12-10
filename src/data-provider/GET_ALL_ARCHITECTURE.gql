@@ -2,14 +2,20 @@
   allSoftwareApplications {
     id: _id
     name
+    alternateName
+    description
+    identifier
     url
+    author {
+      name
+    }
+    availableOnDevice {
+      name
+    }
     featureList {
       name
     }
     operatingSystems {
-      name
-    }
-    availableOnDevice {
       name
     }
   }

@@ -1,7 +1,7 @@
 interface Node {
   id: string,
   name: string,
-  description: string,
+  descriptionItems: {},
   url: string | undefined,
 }
 

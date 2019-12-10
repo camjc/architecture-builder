@@ -4,31 +4,12 @@ import Viz from "viz.js";
 import GraphEdge from "../../../types/GraphEdge";
 import GraphNode from "../../../types/GraphNode";
 import map from "lodash/fp/map";
-import rgbHex from 'rgb-hex';
+import nodeToDot from "./utils/node-to-dot";
+import edgeToDot from "./utils/edge-to-dot";
 
 const viz = new Viz({ Module, render });
 
 const newLine = "\n";
-const getColorPart = (edge: GraphEdge) =>
-  Math.min((Math.log(edge.minutesBetweenData) / Math.log(1440)) * 255, 230);
-
-const edgeToDot = (edge: GraphEdge) =>
-  '"' +
-  edge.from +
-  '" -> "' +
-  edge.to +
-  '" [color="#' +
-  rgbHex(getColorPart(edge), getColorPart(edge), getColorPart(edge)) +
-  '"]';
-
-const nodeToDot = (node: GraphNode) =>
-  '"' +
-  node.id +
-  '" [ label ="' +
-  node.description +
-  (node.url ? '" url="' + node.url : '') +
-  '" shape="record' +
-  '"]';
 
 const GraphRenderer = ({
   header,
