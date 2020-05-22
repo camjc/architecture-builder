@@ -1,0 +1,10 @@
+.cache
+.DS_Store
+.editorconfig
+.github
+*.aes
+*.decrypted
+codeship-services.yml
+codeship-steps.yml
+coverage
+node_modules
