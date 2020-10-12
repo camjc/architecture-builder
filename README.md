@@ -1,5 +1,7 @@
 # Architecture Builder
 
+[![Codeship Status for ahmdigital/architecture-builder](https://app.codeship.com/projects/0107d110-7e08-0138-0ea5-62a0e87a253e/status?branch=master)](https://app.codeship.com/projects/397183)
+
 Use GraphViz to display an architecture diagram, with checkboxes to show/hide systems.
 
 TODO: CI for lint, test, publish.
