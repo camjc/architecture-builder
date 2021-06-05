@@ -42,7 +42,7 @@
     "@types/react": "17.0.9",
     "@types/react-dom": "17.0.5",
     "@types/styled-components": "5.1.9",
-    "husky": "4.3.8",
+    "husky": "6.0.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "tsdx": "0.13.2",
