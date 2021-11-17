@@ -12,7 +12,9 @@ const edgeToDot = (showDetail: boolean) => (edge: GraphEdge) => {
   const tooltip = `tooltip=${edge.description}`;
 
   const description = edge.description
-    ? showDetail ? `label=<<font face="${font}">${edge.description}</font>> ${tooltip}` : tooltip
+    ? showDetail
+      ? `label=<<font face="${font}">${edge.description}</font>> ${tooltip}`
+      : tooltip
     : '';
 
   return `"${edge.from}" -> "${edge.to}" [color="#${hexColor}" ${description}]`;

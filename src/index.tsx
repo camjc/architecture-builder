@@ -44,7 +44,7 @@ const filterEdges = (graphEdges: GraphEdge[]) => (checkedItems: string[] | undef
 
 const emptyArray: string[] = [];
 
-const runHookOnce: [] = [];
+const runHookOnce: unknown[] = [];
 
 export const ArchitectureBuilder = ({ edges, nodes }: { edges: GraphEdge[]; nodes: GraphNode[] }) => {
   const checkBoxes: CheckBox[] = sortBy(
@@ -52,7 +52,7 @@ export const ArchitectureBuilder = ({ edges, nodes }: { edges: GraphEdge[]; node
     (node: CheckBox) => toLower(node.name)
   );
 
-  const [showDetail, setShowDetail ] = useState(false)
+  const [showDetail, setShowDetail] = useState(false);
   const [checkedItems, setCheckedItems] = useState(emptyArray);
   useEffect(buildInitialiseCheckedItemsFromQuery(setCheckedItems), runHookOnce);
   useEffect(buildUpdateQuery(checkedItems), [checkedItems]);
@@ -70,10 +70,15 @@ export const ArchitectureBuilder = ({ edges, nodes }: { edges: GraphEdge[]; node
     <Wrapper>
       <Sidebar>
         <div>
-        <label>
-          <input checked={showDetail} name="show-detail" onChange={() => setShowDetail(!showDetail)} type="checkbox" />
-          Show detail?
-        </label>
+          <label>
+            <input
+              checked={showDetail}
+              name="show-detail"
+              onChange={() => setShowDetail(!showDetail)}
+              type="checkbox"
+            />
+            Show detail?
+          </label>
         </div>
 
         <Button onClick={handleSelectAll}>Select all</Button>
