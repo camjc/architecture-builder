@@ -55,7 +55,7 @@
     "query-string": "^7.0.1",
     "rgb-hex": "^3.0.0",
     "styled-components": "^5.3.3",
-    "use-query-params": "^1.2.3",
+    "use-query-params": "^2.0.0",
     "viz.js": "^2.1.2"
   },
   "renovate": {
